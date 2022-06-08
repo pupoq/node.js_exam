@@ -11,7 +11,7 @@ const userSchema = new Schema({
 const courseSchema = new Schema({
     title: String,
     description: String,
-    owner: userSchema,
+    owner: String,
     enrolledStudents: Array,
     createdAt: Date
 })

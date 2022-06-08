@@ -17,14 +17,14 @@ coursesRouter.post('/', async (req,res) => {
     let year = currentDate.getFullYear()
     let createdAt = `${day}/${month}/${year}`
 
-    owner = JSON.parse(owner)
+    
 
-    let newCourse = new models.Post({
+    let newCourse = new models.Course({
         title, 
         description, 
         owner, 
         createdAt,
-        enrolledStudents
+        enrolledStudents: []
     })
 
     newCourse.save()
@@ -32,5 +32,16 @@ coursesRouter.post('/', async (req,res) => {
     res.status(201).send("Post created")
 })
 
+coursesRouter.post('/enroll', async (req, res) => {
+    const { userId, courseId } = req.body;
+
+    let car = await models.Car.findById(courseId);
+
+    let user = await models.User.findById(userId);
+    user.cars.push(car);
+
+    await models.User.findByIdAndUpdate(userId, user);
+    res.send("car added");
+});
 
 module.exports = coursesRouter
