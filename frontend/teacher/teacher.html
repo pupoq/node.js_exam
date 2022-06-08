@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="teacher.css">
+    <title>Teacher</title>
+</head>
+<body>
+    <div id=header>
+        <div>
+            <img id="img" src="data:image/png;base64,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" alt="" width="70px">
+        </div>
+        <h1 style="margin-left:40px;">Super Courses</h1>
+        <div id=header2 style="margin-right: 250px;">
+            <div id=btn>Menu</div>
+            <div id=btn>Contacts</div>
+            <div id=btn>FAQ</div>
+            <div id=btn>Profile</div>
+        </div>
+    </div>
+
+    <div id="cont">
+        
+    </div>
+    
+    <script src="teacher.js"></script>
+</body>
+</html>
